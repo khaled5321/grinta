@@ -29,7 +29,7 @@
 
 > To run cronjob
 > ```
-> python manage.py runtask process_scheduled_payments
+> python manage.py runtask check_if_competiton_end
 > ```
 > To register cronjob with crontab
 > ```
