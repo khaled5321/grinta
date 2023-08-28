@@ -1,4 +1,4 @@
-from datetime import datetime
+from django.utils import timezone
 from django.db import models
 from django.contrib.auth import get_user_model
 
@@ -41,7 +41,7 @@ class Competition(models.Model):
         
     @property
     def has_ended(self):
-        return self.end_time < datetime.now()
+        return self.end_time < timezone.now()
 
     
 class Vote(models.Model):

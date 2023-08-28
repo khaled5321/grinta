@@ -10,8 +10,8 @@ def competition_get(*, competition_id:int) -> Competition:
 
 
 def singer_get(*, singer_name:str) -> Singer:
-    Singer = get_object_or_404(Singer, name=singer_name)
-    return Singer
+    singer = get_object_or_404(Singer, name=singer_name)
+    return singer
 
 def vote(*, user: User, competition: Competition, singer: Singer) -> Vote:
     if competition.has_ended:

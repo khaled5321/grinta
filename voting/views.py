@@ -16,7 +16,7 @@ class VoteAPIView(APIView):
         competition = competition_get(competition_id=competition_id)
         singer = singer_get(singer_name=serializer.validated_data["singer_name"])
 
-        vote(user=request.user, competition=competition, vote_for=singer)
+        vote(user=request.user, competition=competition, singer=singer)
 
         return Response("user voted successfully", status=status.HTTP_201_CREATED)
     
