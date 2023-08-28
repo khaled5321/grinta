@@ -8,9 +8,10 @@ class VoteSerializer(serializers.Serializer):
 class VoteResultSerializer(serializers.ModelSerializer):
     singer_a_votes = serializers.IntegerField()
     singer_b_votes = serializers.IntegerField()
-    
+
     class Meta:
         model = Competition
+        fields = ['singer_a_votes', 'singer_b_votes']
 
     def get_singer_a_votes(self, obj):
         return obj.singer_a_votes
