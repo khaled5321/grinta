@@ -16,11 +16,11 @@ def singer_get(*, singer_name:str) -> Singer:
 def vote(*, user: User, competition: Competition, singer: Singer) -> Vote:
     if competition.has_ended:
         raise exceptions.ValidationError("Competition has ended")
-
-    vote, created = Vote.objects.get_or_create(voter=user, competition=competition, vote_for = singer)
-
-    if not created:
+    
+    if Vote.objects.filter(voter=user, competition=competition).exists():
         raise exceptions.ValidationError("You have already voted for this competition")
+
+    vote = Vote.objects.create(voter=user, competition=competition, vote_for = singer)
 
     return vote
 
