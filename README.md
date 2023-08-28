@@ -26,3 +26,12 @@
     python manage.py runserver
     ```
 ---
+
+> To run cronjob
+> ```
+> python manage.py runtask process_scheduled_payments
+> ```
+> To register cronjob with crontab
+> ```
+> python manage.py installtasks
+> ```
