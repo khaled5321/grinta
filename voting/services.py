@@ -10,7 +10,7 @@ def competition_get(*, competition_id:int) -> Competition:
 
 
 def singer_get(*, singer_name:str) -> Singer:
-    Singer = get_object_or_404(Competition, name=singer_name)
+    Singer = get_object_or_404(Singer, name=singer_name)
     return Singer
 
 def vote(*, user: User, competition: Competition, singer: Singer) -> Vote:
